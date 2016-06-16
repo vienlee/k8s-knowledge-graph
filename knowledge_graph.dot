@@ -1,0 +1,127 @@
+digraph G {
+    rankdir=LR;
+    fontname="sans-serif";
+    penwidth="0.1";
+    edge [comment="Wildcard edge", 
+          fontname="sans-serif", 
+          fontsize=10, 
+          colorscheme="blues3", 
+          color=2, 
+          fontcolor=3];
+    node [fontname="serif", 
+          fontsize=10, 
+          fillcolor="1", 
+          colorscheme="blues4", 
+          color="2", 
+          fontcolor="4", 
+          style="filled"];
+    "main" [shape="box", 
+            fontsize="14", 
+            label="Knowledge graph"];
+    "CoreOS" [fontsize="12", 
+              label="CoreOS"];
+    "flannel" [style="filled", 
+               fillcolor="4", 
+               colorscheme="blues4", 
+               color="1", 
+               fontcolor="1", 
+               label="flannel"];
+    "fleet" [label="fleet"];
+    "pxe" [style="filled", 
+           fillcolor="4", 
+           colorscheme="blues4", 
+           color="1", 
+           fontcolor="1", 
+           label="pxe"];
+    "systemctl" [style="filled", 
+                 fillcolor="4", 
+                 colorscheme="blues4", 
+                 color="1", 
+                 fontcolor="1", 
+                 label="systemctl"];
+    "etcd" [style="filled", 
+            fillcolor="4", 
+            colorscheme="blues4", 
+            color="1", 
+            fontcolor="1", 
+            label="etcd"];
+    "ceph" [fontsize="12", 
+            label="ceph"];
+    "kubelet" [style="filled", 
+               fillcolor="4", 
+               colorscheme="blues4", 
+               color="1", 
+               fontcolor="1", 
+               label="kubelet"];
+    "skydns" [label="skydns"];
+    "pod" [style="filled", 
+           fillcolor="4", 
+           colorscheme="blues4", 
+           color="1", 
+           fontcolor="1", 
+           label="pod"];
+    "label" [label="label"];
+    "service" [style="filled", 
+               fillcolor="4", 
+               colorscheme="blues4", 
+               color="1", 
+               fontcolor="1", 
+               label="service"];
+    "skydns" [label="skydns"];
+    "deployment" [label="deployment"];
+    "loadbalancer" [label="loadbalancer"];
+    "calico" [label="calico"];
+    "OVS" [label="OVS(OpenSwitch)"];
+    "systemd" [style="filled", 
+               fillcolor="4", 
+               colorscheme="blues4", 
+               color="1", 
+               fontcolor="1", 
+               label="systemd"];
+    "docker" [style="filled", 
+              fillcolor="4", 
+              colorscheme="blues4", 
+              color="1", 
+              fontcolor="1", 
+              label="docker"];
+    "journalctl" [style="filled", 
+                  fillcolor="4", 
+                  colorscheme="blues4", 
+                  color="1", 
+                  fontcolor="1", 
+                  label="journalctl"];
+    "k8s" [fontsize="12", 
+           label="k8s"];
+    "main" -> "CoreOS";
+    "main" -> "k8s";
+    "main" -> "ceph";
+    "CoreOS" -> "calico";
+    "CoreOS" -> "flannel";
+    "CoreOS" -> "OVS";
+    "CoreOS" -> "etcd";
+    "CoreOS" -> "fleet";
+    "CoreOS" -> "systemd";
+    "k8s" -> "deployment";
+    "k8s" -> "kubelet";
+    "systemd" -> "journalctl";
+    "systemd" -> "systemctl";
+    "fleet" -> "systemd";
+    "CoreOS" -> "docker";
+    "k8s" -> "docker";
+    "k8s" -> "pod";
+    "k8s" -> "service";
+    "CoreOS" -> "pxe";
+    "k8s" -> "skydns";
+    "k8s" -> "label";
+    "k8s" -> "loadbalancer";
+    "kubelet-wrapper" [label="kubelet-wrapper"];
+    "CoreOS" -> "kubelet-wrapper";
+    "kubelet-wrapper" -> "kubelet";
+    "cloud-config" [style="filled", 
+                    fillcolor="4", 
+                    colorscheme="blues4", 
+                    color="1", 
+                    fontcolor="1", 
+                    label="cloud-config"];
+    "CoreOS" -> "cloud-config";
+}
