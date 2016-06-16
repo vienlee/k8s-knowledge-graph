@@ -1,3 +1,3 @@
 # k8s-knowledge-graph
 
- ![knowledge_graph](img/knowledge_graph.png)
+![knowledge_graph](img/knowledge_graph.png)
